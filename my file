@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renovation Company</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome Link -->
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Background Image Styling */
+        body {
+            background-image: url('Ragie’s RENOVATION EXPERTS.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff; /* Default text color for readability */
+        }
+
+        /* Section Styling */
+        section {
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            background-color: transparent; /* Transparent to show background image */
+            color: white; /* White text for readability */
+        }
+
+        #services, #portfolio, #contact {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .service {
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer; /* Show pointer cursor when hovering over images */
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Contact Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            background-color: rgb(255, 255, 255); /* Slightly transparent for readability */
+            color: rgb(0, 0, 0);
+            border: 1px solid #000000;
+            border-radius: 4px;
+        }
+
+        form input::placeholder, form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.966); /* Placeholder text color */
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #45a049;
+        }
+
+        /* Footer Icons Styling */
+        .footer-icons {
+            margin-top: 10px;
+        }
+
+        .footer-icons i {
+            font-size: 1.5em;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service">
+            <h3>Tiling</h3>
+            <p>We offer professional tiling services for floors, walls, and more.</p>
+        </div>
+        <div class="service">
+            <h3>Ceiling Installation</h3>
+            <p>High-quality ceiling installation to enhance your home’s interior.</p>
+        </div>
+        <div class="service">
+            <h3>Plumbing</h3>
+            <p>Reliable plumbing solutions for residential and commercial spaces.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>Our Work</h2>
+        <div class="gallery">
+            <a href="work1-folder">
+                <img src="pexels-fotoaibe-3741317.jpg" alt="Project 1" onclick="openModal(this)">
+                <p>Work 1: Tiling Project</p>
+            </a>
+            <a href="work2-folder">
+                <img src="pexels-heyho-7614405.jpg" alt="Project 2" onclick="openModal(this)">
+                <p>Work 2: Ceiling Installation</p>
+            </a>
+            <a href="work3-folder">
+                <img src="pexels-jvdm-1457847.jpg" alt="Project 3" onclick="openModal(this)">
+                <p>Work 3: Plumbing Work</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Modal for image display -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Modal Image">
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Get in touch with us for a free quote!</p>
+        <form action="https://formspree.io/f/xjkvwegp" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/yourwhatsappnumber">+1 234 567 890</a></p>
+        <p><i class="fab fa-facebook-f"></i> Visit us on Facebook: <a href="https://facebook.com/yourpage" target="_blank">Facebook Page</a></p>
+        <p><strong>Website:</strong> <a href="https://yourwebsite.com" target="_blank">www.yourwebsite.com</a></p>
+    </footer>
+
+    <script>
+        // Function to open the modal and display the clicked image
+        function openModal(imgElement) {
+            var modal = document.getElementById('myModal');
+            var modalImg = document.getElementById('modalImage');
+            modal.style.display = "flex"; // Show the modal
+            modalImg.src = imgElement.src; // Set the modal image source to clicked image
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = "none"; // Hide the modal
+        }
+    </script>
+</body>
+</html>
+
