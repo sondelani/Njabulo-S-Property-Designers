@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Property Designers - Renovation Company</title>
+    <meta name="description" content="Professional renovation services by Elite Property Designers. We specialize in tiling, ceiling installation, and plumbing for residential and commercial properties.">
+    <meta name="keywords" content="renovation, tiling, ceiling installation, plumbing, home improvement, construction, Elite Property Designers">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Header and Navbar */
+        header {
+            background-color: #1a1a3c;
+            padding: 15px 0;
+            color: #fff;
+        }
+
+        .header-container {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 5px 10px;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        /* Social Icons and Search Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 5px 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.2em;
+        }
+
+        .social-icons a[aria-label] {
+            display: inline-block;
+        }
+
+        .search-bar {
+            position: relative;
+            display: inline-block;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            border: none;
+            border-radius: 3px;
+            width: 150px;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: #ffcc00;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        /* Hero Section with Rotating Background Images */
+        .hero {
+            position: relative;
+            height: 400px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            animation: backgroundRotate 20s infinite;
+        }
+
+        @keyframes backgroundRotate {
+            5% { background-image: url('224.jpg'); }
+            25% { background-image: url('225.jpg'); }
+            50% { background-image: url('226.jpg'); }
+            75% { background-image: url('227.jpg'); }
+            100% { background-image: url('228.jpg'); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            color: black;
+        }
+
+        #services, #portfolio, #contact {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .service {
+            margin-bottom: 20px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .service:hover {
+            background-color: #f0f0f5;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Contact Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #000000;
+            border-radius: 4px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #45a049;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #999;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .gallery img {
+                width: 100%;
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Social Icons and Search Bar -->
+    <div class="top-bar">
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+
+    <!-- Header with Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo">Njabulo'S Property Designers</div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Your Dream Renovation Begins Here</h1>
+            <p>Turning your ideas into stunning, lasting spaces</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service">
+            <h3>Tiling</h3>
+            <p>Expert tiling services for any room.</p>
+        </div>
+        <div class="service">
+            <h3>Ceiling Installation</h3>
+            <p>High-quality ceiling installations that last.</p>
+        </div>
+        <div class="service">
+            <h3>Plumbing</h3>
+            <p>Reliable plumbing for renovations and new builds.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>(TILING)</h2>
+        <div class="gallery">
+            <img src="224.jpg" alt="Tiling project example" onclick="openModal(this)">
+            <img src="225.jpg" alt="Living room renovation" onclick="openModal(this)">
+            <img src="226.jpg" alt="Bathroom renovation" onclick="openModal(this)">
+            <img src="227.jpg" alt="Kitchen tiling project" onclick="openModal(this)">
+            <img src="228.jpg" alt="Outdoor area renovation" onclick="openModal(this)">
+        </div>
+        <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>CEILING</h2>
+        <div class="gallery">
+            <img src="009.jpg" alt="Tiling project example" onclick="openModal(this)">
+            <img src="992.jpg" alt="Living room renovation" onclick="openModal(this)">
+            <img src="992.jpg" alt="Bathroom renovation" onclick="openModal(this)">
+            <img src="Gypsum Ceiling Design.jpg" alt="Kitchen tiling project" onclick="openModal(this)">
+            <img src="install09.jpg" alt="Outdoor area renovation" onclick="openModal(this)">
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form onsubmit="return validateForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Elite Property Designers. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal for Portfolio Images -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        // Modal Script
+        function openModal(image) {
+            document.getElementById("myModal").style.display = "block";
+            document.getElementById("modalImg").src = image.src;
+        }
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Form Validation
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            if (!name || !email || !message) {
+                alert("All fields are required.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
